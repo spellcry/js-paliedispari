@@ -14,10 +14,14 @@ function numeroRandom(min, max) {
 // funzione pari o dispari
 function pariDispari (numeroUno, numeroDue) {
     const sommaNumeri = numeroUno + numeroDue;
+    let sommaPariDispari;
     if ( sommaNumeri % 2 === 0 ) {
-        return 'pari';
+        sommaPariDispari = 'pari';
+    } else {
+        sommaPariDispari = 'dispari';
     }
-    return 'dispari';
+    console.log(`La somma ${numeroUno} + ${numeroDue} = ${numeroUno + numeroDue} è: ${sommaPariDispari}`);
+    return sommaPariDispari;
 }
 
 // invocazione funzioni
@@ -37,14 +41,13 @@ if ( sceltaUtente === 'pari' || sceltaUtente === 'dispari' ) {
         const numeroComputerRandom = numeroRandom(1, 5);
         console.log(`Il numero del computer è: ${numeroComputerRandom}`);
         const sommaPariDispari = pariDispari(numeroUtente, numeroComputerRandom);
-        console.log(`La somma ${numeroUtente} + ${numeroComputerRandom} = ${numeroUtente + numeroComputerRandom} è: ${sommaPariDispari}`);
         if ( sommaPariDispari === sceltaUtente ) {
             console.log('Ha vinto l\'utente!');
         } else {
             console.log('Ha vinto il computer!');
         }
     } else {
-        console.warn('Devi inserire un numero tra 1 e 5, estremi inclusi');
+        console.warn('Devi inserire un numero tra 1 e 5, estremi inclusi! Gioco termianto.');
     }
 } else {
     console.warn('Devi scrive \'pari\' o \'dispari\'! Gioco terminato.');
