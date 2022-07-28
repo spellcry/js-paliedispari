@@ -12,24 +12,12 @@ function numeroRandom(min, max) {
 }
 
 // funzione pari o dispari
-function pariDispari (numUtente, numComputer) {
-    if ( isNaN(numUtente) || numUtente < 1 || numUtente > 5 ) {
-        console.warn(`Il valore 'numUtente' passato alla funzione deve essere un numero tra 1 e 5, estremi inclusi`);
-        return null;
+function pariDispari (numeroUno, numeroDue) {
+    const sommaNumeri = numeroUno + numeroDue;
+    if ( sommaNumeri % 2 === 0 ) {
+        return 'pari';
     }
-    if ( isNaN(numComputer) || numComputer < 1 || numComputer > 5 ) {
-        console.warn(`Il valore 'numComputer' passato alla funzione deve essere un numero tra 1 e 5, estremi inclusi`);
-        return null;
-    }     
-    const sommaNumeri = numUtente + numComputer;
-    let pariDispari;
-    if ( sommaNumeri % 2 === 0 ) {        
-        pariDispari = 'pari';
-    } else {
-        pariDispari = 'dispari';
-    }
-    console.log(`La somma ${numUtente} + ${numComputer} = ${numUtente + numComputer} è: ${pariDispari}`);
-    return pariDispari;
+    return 'dispari';
 }
 
 // invocazione funzioni
@@ -44,18 +32,19 @@ const sceltaUtente = prompt('Scegli e quindi scrivi \'pari\' o \'dispari\'');
 if ( sceltaUtente === 'pari' || sceltaUtente === 'dispari' ) {
     console.log(`L'utente ha scelto: ${sceltaUtente}`);
     const numeroUtente = parseInt(prompt('Scegli un numero da 1 a 5, estremi inclusi'));
-    console.log(`Il numero scelto dall'utente è: ${numeroUtente}`);
-    const numeroComputerRandom = numeroRandom(1, 5);
-    console.log(`Il numero del computer è: ${numeroComputerRandom}`);
-    const sommaPariDispari = pariDispari(numeroUtente, numeroComputerRandom);
-    if( sommaPariDispari != null ) {
+    if ( !isNaN(numeroUtente) && numeroUtente >= 1 && numeroUtente <= 5 ) {
+        console.log(`Il numero scelto dall'utente è: ${numeroUtente}`);
+        const numeroComputerRandom = numeroRandom(1, 5);
+        console.log(`Il numero del computer è: ${numeroComputerRandom}`);
+        const sommaPariDispari = pariDispari(numeroUtente, numeroComputerRandom);
+        console.log(`La somma ${numeroUtente} + ${numeroComputerRandom} = ${numeroUtente + numeroComputerRandom} è: ${sommaPariDispari}`);
         if ( sommaPariDispari === sceltaUtente ) {
             console.log('Ha vinto l\'utente!');
         } else {
             console.log('Ha vinto il computer!');
         }
     } else {
-        console.warn('Gioco terminato.')
+        console.warn('Devi inserire un numero tra 1 e 5, estremi inclusi');
     }
 } else {
     console.warn('Devi scrive \'pari\' o \'dispari\'! Gioco terminato.');
