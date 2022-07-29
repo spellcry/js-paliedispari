@@ -1,24 +1,30 @@
 // funzione per invertire una parola
-function invertiParola(parola) {
+function invertiParola (parola) {
     return parola.split('').reverse().join('');
 }
 
 // funzione per capire se una parola è palindroma
-function isPalindroma(parolaDaInvertire) {
-    const parolaInvertita = invertiParola(parolaDaInvertire);
+function isPalindroma (parolaDaInvertire) {
+    const parolaInvertita = invertiParola(parolaDaInvertire).toLowerCase();
+    parolaDaInvertire = parolaDaInvertire.toLowerCase();
     return parolaInvertita === parolaDaInvertire;
 }
 
 // funzione che restituisce un numero random compreso tra due estremi inclusi
-function numeroRandom(min, max) {
+function numeroRandom (min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+// funzione per eserguire una somma
+function somma (numUno, numDue) {
+    return numUno + numDue;
+}
+
 // funzione pari o dispari
 function pariDispari (numeroUno, numeroDue) {
-    const sommaNumeri = numeroUno + numeroDue;
+    const sommaNumeri = somma(numeroUno, numeroDue);
     let sommaPariDispari;
     if ( sommaNumeri % 2 === 0 ) {
         sommaPariDispari = 'pari';
