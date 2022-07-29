@@ -5,7 +5,7 @@ function invertiParola (parola) {
 
 // funzione per capire se una parola è palindroma
 function isPalindroma (parolaDaInvertire) {
-    parolaDaInvertire = parolaDaInvertire.toLowerCase();
+    parolaDaInvertire = parolaDaInvertire.toLowerCase().trim();
     return parolaDaInvertire === invertiParola(parolaDaInvertire);
 }
 
@@ -42,10 +42,10 @@ if (isPalindroma(parola)) {
     console.log(`La parola '${parola}' non è palindroma!`);
 }
 
-const sceltaUtente = prompt('Scegli e quindi scrivi \'pari\' o \'dispari\'');
+const sceltaUtente = prompt('Scegli e quindi scrivi \'pari\' o \'dispari\'').toLocaleLowerCase().trim();
 if ( sceltaUtente === 'pari' || sceltaUtente === 'dispari' ) {
     console.log(`L'utente ha scelto: ${sceltaUtente}`);
-    const numeroUtente = parseInt(prompt('Scegli un numero da 1 a 5, estremi inclusi'));
+    const numeroUtente = parseInt(prompt('Scegli un numero da 1 a 5, estremi inclusi').trim());
     if ( !isNaN(numeroUtente) && numeroUtente >= 1 && numeroUtente <= 5 ) {
         console.log(`Il numero scelto dall'utente è: ${numeroUtente}`);
         const numeroComputerRandom = numeroRandom(1, 5);
