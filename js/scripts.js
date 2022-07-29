@@ -5,9 +5,8 @@ function invertiParola (parola) {
 
 // funzione per capire se una parola è palindroma
 function isPalindroma (parolaDaInvertire) {
-    const parolaInvertita = invertiParola(parolaDaInvertire).toLowerCase();
     parolaDaInvertire = parolaDaInvertire.toLowerCase();
-    return parolaInvertita === parolaDaInvertire;
+    return parolaDaInvertire === invertiParola(parolaDaInvertire);
 }
 
 // funzione che restituisce un numero random compreso tra due estremi inclusi
