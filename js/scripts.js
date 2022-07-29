@@ -37,9 +37,9 @@ function pariDispari (numeroUno, numeroDue) {
 // invocazione funzioni
 const parola = prompt('Inserisci una parola');
 if (isPalindroma(parola)) {
-    console.log(`La parola '${parola}' è palindroma!`);
+    console.log(`La parola '${parola.trim()}' è palindroma!`);
 } else {
-    console.log(`La parola '${parola}' non è palindroma!`);
+    console.log(`La parola '${parola.trim()}' non è palindroma!`);
 }
 
 const sceltaUtente = prompt('Scegli e quindi scrivi \'pari\' o \'dispari\'').toLocaleLowerCase().trim();
