@@ -1,6 +1,11 @@
+// funzione per invertire una parola
+function invertiParola(parola) {
+    return parola.split('').reverse().join('');
+}
+
 // funzione per capire se una parola è palindroma
 function isPalindroma(parolaDaInvertire) {
-    let parolaInvertita = parolaDaInvertire.split('').reverse().join('');
+    const parolaInvertita = invertiParola(parolaDaInvertire);
     return parolaInvertita === parolaDaInvertire;
 }
 
